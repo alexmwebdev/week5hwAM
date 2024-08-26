@@ -4,9 +4,9 @@ const readline = require("readline");
 async function processLineByLine() {
        
         /* Push each line to a new array. */
-        const results = [];
-        for (i = 2; i <= process.argv.length-1; i++) {
+        for (i = 2; i < process.argv.length; i++) {
             /* Read stream and interface */
+            let resultsi = [];
             try {
                 var inputStream = fs.createReadStream('task2/' + process.argv[i]);
                 var lineReader = readline.createInterface({
@@ -14,14 +14,14 @@ async function processLineByLine() {
                     terminal: false,
                 });
                 for await (const line of lineReader) {
-                    results.push(line);
+                    resultsi.push(line);
                 }
+                console.log(resultsi);
             } catch (error) {
                 console.log("Unable to load file " + process.argv[i]);
             }
         }
-        return results;
        }
        
        /* Do something with the result. */
-       processLineByLine().then(res => console.log(res));
+processLineByLine();
