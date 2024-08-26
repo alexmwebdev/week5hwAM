@@ -1,10 +1,6 @@
 const fs = require("fs");
 const readline = require("readline");
-function reverse(value) {  
-    return Array.from(
-      String(value || '')
-    ).reverse().join('')
-  }
+
 async function processLineByLine() {
        
         /* Push each line to a new array. */
